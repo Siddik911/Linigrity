@@ -1,0 +1,1 @@
+/home/hasan/Desktop/Repos/config.fish
