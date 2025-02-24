@@ -1,4 +1,4 @@
 This part is resoponsible for input
 {
-    ami ponditi kore onnerta add kore dilam 1 2 3 4 5 6 7
+    ami ponditi kore onnerta add kore dilam 1 2 3 4 5 6 7 
 }
