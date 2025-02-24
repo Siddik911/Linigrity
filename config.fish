@@ -1,1 +1,1 @@
-/home/hasan/Desktop/Repos/config.fish
+/home/hasan/.config/fish/config.fish
