@@ -1,11 +1,13 @@
-sort folders by size in windows
+#sort folders by size in windows
 
-Get-ChildItem -Directory | 
+Get-ChildItem -Directory |
+    Where-Object { $_.Name -ne "Windows" } |
     ForEach-Object {
-        $size = (Get-ChildItem $_.FullName -Recurse | Measure-Object -Property Length -Sum).Sum / 1GB
+        $files = Get-ChildItem $_.FullName -Recurse -File -ErrorAction SilentlyContinue
+        $size = ($files | Measure-Object -Property Length -Sum).Sum / 1GB
         [PSCustomObject]@{
             Name = $_.Name
             "Size(GB)" = [math]::Round($size, 2)
         }
-    } | 
+    } |
     Sort-Object "Size(GB)" -Descending
