@@ -5,7 +5,7 @@ gaps:
 ################################################################
 
   # Gap between adjacent windows.
-  inner_gap: '0px'
+  inner_gap: '-1px'
 
   # Gap between windows and the screen edge.
   outer_gap:
@@ -185,15 +185,21 @@ window_rules:
       - window_process: { equals: 'POWERPNT' }
         window_class: { not_regex: 'PPTFrameClass' }
 
+#------------------------------------------------------------------------------#
+################################## VSCODE ##########################################
+#------------------------------------------------------------------------------#
   # Hide title bar and adjust borders for VS Code
-  - commands: ["set-title-bar-visibility hidden", "adjust-borders --top 30px"]
+  - commands: ["set-title-bar-visibility hidden", "adjust-borders --top 40px"]
     match:
       - window_process: { equals: "Code" }
-
+#------------------------------------------------------------------------------#
+################################## EDGE ##########################################
+#------------------------------------------------------------------------------#
   # Hide title bar and adjust borders for VS Code
-  - commands: ["adjust-borders --right 17px"]
+  - commands: ["adjust-borders --right 17px --top 10px --bottom 17"]
     match:
       - window_process: { equals: "msedge" }
+#------------------------------------------------------------------------------#
 
 
 
@@ -216,23 +222,23 @@ window_rules:
 keybindings:
   # Shift focus in a given direction.
   - commands: ['focus --direction left']
-    bindings: ['ctrl+alt+h', 'ctrl+alt+left']
+    bindings: ['ctrl+alt+h']
   - commands: ['focus --direction right']
-    bindings: ['ctrl+alt+l', 'ctrl+alt+right']
+    bindings: ['ctrl+alt+l']
   - commands: ['focus --direction up']
-    bindings: ['ctrl+alt+k', 'ctrl+alt+up']
+    bindings: ['ctrl+alt+k']
   - commands: ['focus --direction down']
-    bindings: ['ctrl+alt+j', 'ctrl+alt+down']
+    bindings: ['ctrl+alt+j']
 
   # Move focused window in a given direction.
   - commands: ['move --direction left']
-    bindings: ['ctrl+alt+shift+h', 'ctrl+alt+shift+left']
+    bindings: ['ctrl+alt+shift+h']
   - commands: ['move --direction right']
-    bindings: ['ctrl+alt+shift+l', 'ctrl+alt+shift+right']
+    bindings: ['ctrl+alt+shift+l']
   - commands: ['move --direction up']
-    bindings: ['ctrl+alt+shift+k', 'ctrl+alt+shift+up']
+    bindings: ['ctrl+alt+shift+k']
   - commands: ['move --direction down']
-    bindings: ['ctrl+alt+shift+j', 'ctrl+alt+shift+down']
+    bindings: ['ctrl+alt+shift+j']
 
   # Resize focused window by a percentage or pixel amount.
   - commands: ['resize --width -2%']
@@ -333,16 +339,16 @@ keybindings:
   - commands: ['focus --workspace 9']
     bindings: ['ctrl+alt+9']
 
-  # Move the focused window's parent workspace to a monitor in a given
-  # direction.
-  - commands: ['move-workspace --direction left']
-    bindings: ['ctrl+alt+shift+a']
-  - commands: ['move-workspace --direction right']
-    bindings: ['ctrl+alt+shift+f']
-  - commands: ['move-workspace --direction up']
-    bindings: ['ctrl+alt+shift+d']
-  - commands: ['move-workspace --direction down']
-    bindings: ['ctrl+alt+shift+s']
+  # # Move the focused window's parent workspace to a monitor in a given
+  # # direction.
+  # - commands: ['move-workspace --direction left']
+  #   bindings: ['ctrl+alt+shift+a']
+  # - commands: ['move-workspace --direction right']
+  #   bindings: ['ctrl+alt+shift+f']
+  # - commands: ['move-workspace --direction up']
+  #   bindings: ['ctrl+alt+shift+d']
+  # - commands: ['move-workspace --direction down']
+  #   bindings: ['ctrl+alt+shift+s']
 
   # Move focused window to a workspace defined in `workspaces` config.
   - commands: ['move --workspace 1', 'focus --workspace 1']
